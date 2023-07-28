@@ -12,6 +12,11 @@ public class SpawnPosSelfDestruct : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.playerDead || GameManager.Instance.victory)
+        {
+            Destroy(gameObject);
+        }
+
         if (Time.time - createdTime > 1f)
         {
             Destroy(gameObject);

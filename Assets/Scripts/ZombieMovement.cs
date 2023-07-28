@@ -5,10 +5,11 @@ using UnityEngine;
 public class ZombieMovement : MonoBehaviour
 {
     public float speed = 5f;
-    private Rigidbody2D rb;
-    private GameObject player;
+    protected Rigidbody2D rb;
+    protected GameObject player;
+    protected Vector2 moveMent;
+
     private PlayerHp playerHp;
-    private Vector2 moveMent;
 
     // Start is called before the first frame update
     void Start()
@@ -21,32 +22,37 @@ public class ZombieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.playerDead == false)
-        {
-            FollowPlayer();
-        }
-        
-    }
-    private void FixedUpdate()
-    {
-        if (GameManager.Instance.victory || GameManager.Instance.playerDead)
+        if (GameManager.Instance.playerDead || GameManager.Instance.victory)
         {
             Destroy(gameObject);
         }
-        if (GameManager.Instance.playerDead == false)
+
+        if (GameManager.Instance.playerDead || GameManager.Instance.victory)
         {
-            ZombieMove(moveMent);
+            return;
         }
-        
+        FollowPlayer();
     }
-    void FollowPlayer()
+    private void FixedUpdate()
+    {
+        
+        if (GameManager.Instance.playerDead || GameManager.Instance.victory)
+        {
+            return;
+        }
+        ZombieMove(moveMent);
+
+    }
+
+    protected virtual void FollowPlayer()
     {
         Vector3 findPlayer = (player.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(findPlayer.y, findPlayer.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         moveMent = findPlayer;
+
     }
-    void ZombieMove(Vector2 findPlayer)
+    protected virtual void ZombieMove(Vector2 findPlayer)
     {
         Vector3 distance = player.transform.position - transform.position;
         if (distance.magnitude >= 1)

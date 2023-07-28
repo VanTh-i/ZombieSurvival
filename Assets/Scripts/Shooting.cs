@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
-    public GameObject bulletPrefabs;
+    //public GameObject bulletPrefabs;
     public float speed = 20f;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,14 @@ public class Shooting : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefabs, firePoint.position, firePoint.rotation);
+        //GameObject bullet = Instantiate(bulletPrefabs, firePoint.position, firePoint.rotation);
+        GameObject bullet = ObjectPool.Instance.GetpooledBullet();
+        if (bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = firePoint.rotation;
+            bullet.SetActive(true);
+        }
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * speed, ForceMode2D.Impulse);
     }

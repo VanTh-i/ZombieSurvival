@@ -39,13 +39,17 @@ public class GameManager : MonoBehaviour
     {
         score -= amount;
         scoreText.text = score.ToString();
+        if (score == 0)
+        {
+            victory = true;
+        }
     }
     public void PlayerDead()
     {
         if (playerDead == true)
         {
-            SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
-            spawnManager.StopSpawn();
+            //SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+            //spawnManager.StopSpawn();
             youLoseUI.SetActive(true);
             player.SetActive(false);
         }
@@ -56,21 +60,20 @@ public class GameManager : MonoBehaviour
 
             playerDead = false;
             youLoseUI.SetActive(false);
-            SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
-            spawnManager.Spawn();
+            //SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+            //spawnManager.Spawn();
             player.SetActive(true);
         }
     }
 
     public void Victory()
     {
-        if (score == 0)
+        if (victory)
         {
-            victory = true;
             victoryUI.SetActive(true);
-            SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
-            spawnManager.StopSpawn();
-            player.SetActive(false);
+            //player.SetActive(false);
+            //SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+            //spawnManager.StopSpawn();
         }
     }
     public void PlayAgain()

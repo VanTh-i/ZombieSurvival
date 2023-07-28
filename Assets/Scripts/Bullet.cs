@@ -21,7 +21,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
             collision.GetComponent<EnemyHP>().HitEnemy(1);
             //Destroy(collision.gameObject);
         }
@@ -30,11 +31,13 @@ public class Bullet : MonoBehaviour
     {
         if (transform.position.x > xBound || transform.position.x < -xBound)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if (transform.position.y > yBound || transform.position.y < -yBound)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

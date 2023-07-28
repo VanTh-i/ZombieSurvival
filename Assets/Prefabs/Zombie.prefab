@@ -401,8 +401,8 @@ GameObject:
   - component: {fileID: 2599243924115664928}
   - component: {fileID: -624254082681039959}
   - component: {fileID: 6521805397759130789}
-  - component: {fileID: 774006198814270706}
   - component: {fileID: 448320001522376901}
+  - component: {fileID: 6338395520092086260}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -532,19 +532,6 @@ CircleCollider2D:
   m_Offset: {x: -0.03, y: -0.12}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!114 &774006198814270706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2599243924115664931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7633223e0b811046b87412ac443c498, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
 --- !u!114 &448320001522376901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,3 +546,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHitPoints: {fileID: 997039786}
   maxHP: 3
+--- !u!114 &6338395520092086260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599243924115664931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a524ddcaa37d1b42ad57439302fa9a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7

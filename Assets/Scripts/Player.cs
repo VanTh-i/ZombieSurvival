@@ -23,15 +23,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.victory || GameManager.Instance.playerDead)
+        if (GameManager.Instance.victory)
         {
             return;
         }
-        else PlayerMovement();
-        
+        PlayerMovement();
+
     }
     private void FixedUpdate()
     {
+        if (GameManager.Instance.victory)
+        {
+            return;
+        }
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
         PlayerDirection();
     }
