@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     int score;
-    int maxEnemy = 50;
+    public int maxEnemy = 20;
     public bool playerDead  = false;
     public bool victory = false;
     public GameObject player;
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         score = maxEnemy;
         scoreText.text = "" + score;
     }
