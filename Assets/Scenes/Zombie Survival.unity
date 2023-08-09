@@ -2113,7 +2113,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1843909917}
-  inventorySize: 10
+  inventoryData: {fileID: 11400000, guid: 7796b6b2fc93207429e38a7358784461, type: 2}
+  initialItems:
+  - quantity: 2
+    item: {fileID: 11400000, guid: 0e48a13819749b34cbfddeaee1011d52, type: 2}
+  - quantity: 1
+    item: {fileID: 11400000, guid: 366fc25f19eddbf4da9dc6fccb27f8bc, type: 2}
+  - quantity: 5
+    item: {fileID: 11400000, guid: 0e48a13819749b34cbfddeaee1011d52, type: 2}
 --- !u!1 &1603430861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,19 +2510,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3854002762771194706, guid: 685cb66556aefc747b9471e449df5df1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3854002762771194706, guid: 685cb66556aefc747b9471e449df5df1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3854002762771194706, guid: 685cb66556aefc747b9471e449df5df1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50.802902
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3854002762771194706, guid: 685cb66556aefc747b9471e449df5df1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.8029
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4463226047153891280, guid: 685cb66556aefc747b9471e449df5df1, type: 3}
       propertyPath: m_RaycastTarget
@@ -3069,6 +3076,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670125312489004293, guid: 63eb2839d09210a498e2be7e13316165, type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: 21300000, guid: 47908e753534df9459d4d28f955d279a, type: 3}
     - target: {fileID: 8670125312489004293, guid: 63eb2839d09210a498e2be7e13316165, type: 3}
       propertyPath: mouseFollower
       value: 

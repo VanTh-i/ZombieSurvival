@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class UIInventoryItem : MonoBehaviour
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField]
     private Image itemImage;
@@ -48,12 +48,13 @@ public class UIInventoryItem : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnPointerClick(BaseEventData data)
+    public void OnDrag(PointerEventData eventData)
     {
-        if (empty)
-            return;
 
-        PointerEventData pointerData = (PointerEventData)data;
+    }
+
+    public void OnPointerClick(PointerEventData pointerData)
+    {
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             OnRightMouseBtnClick?.Invoke(this);
@@ -64,25 +65,20 @@ public class UIInventoryItem : MonoBehaviour
         }
     }
 
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnBeginDrag()
+    public void OnBeginDrag(PointerEventData eventData)
     {
         if (empty)
             return;
         OnItemBeginDrag?.Invoke(this);
     }
 
-    public void OnDrop()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        OnItemDroppedOn?.Invoke(this);
+        OnItemEndDrag?.Invoke(this);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
-
+        OnItemDroppedOn?.Invoke(this);
     }
 }
